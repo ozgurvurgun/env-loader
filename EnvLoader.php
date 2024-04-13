@@ -4,9 +4,9 @@ class EnvLoader
 {
     private string $path;
     private array $tmp_env = [];
-    public function __construct()
+    public function __construct(string $env_file)
     {
-        $this->path = realpath('.env');
+        $this->path = realpath($env_file);
 
         if (!is_file($this->path))
             throw new ErrorException('Environment File is Missing.');
